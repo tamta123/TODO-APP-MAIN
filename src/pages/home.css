@@ -1,0 +1,35 @@
+.home-page-container {
+  height: auto;
+  position: relative;
+  /* padding: 48px 26px 16px 26px; */
+}
+.todo-container {
+  position: absolute;
+  top: 48px;
+  width: 100%;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.todo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 15px;
+  color: #ffffff;
+}
+
+#dark {
+  display: none;
+}
+
+#sun {
+  display: none;
+}
