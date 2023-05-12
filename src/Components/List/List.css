@@ -1,8 +1,8 @@
 .list-container {
+  width: 100%;
   height: auto;
-}
-.left-clear {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
@@ -10,7 +10,13 @@
   border-radius: 5px;
   padding: 16px 20px 22px 20px;
   margin-bottom: 16px;
-  border-top: 2px solid #e3e4f1;
+}
+.left-clear {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
 }
 
 .left-clear div {

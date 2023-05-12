@@ -9,6 +9,8 @@ import Footer from "../Components/footer/Footer";
 import { useState } from "react";
 
 const Home = ({ mode, toggleMode }) => {
+  const [todoList, setTodoList] = useState([]);
+
   return (
     <section
       className={`home-page-container ${mode === "dark" ? "dark-mode" : ""}`}
@@ -33,9 +35,10 @@ const Home = ({ mode, toggleMode }) => {
             <img id="sun" src={Sun} alt="sun" onClick={toggleMode} />
           </div>
         </div>
-        <Input mode={mode} />
-        <List />
+        <Input mode={mode} setTodoList={setTodoList} />
+        <List todoList={todoList} />
         <Footer mode={mode} />
+        <p>Drag and drop to reorder list</p>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./input.css";
 
-const Input = ({ mode }) => {
+const Input = ({ mode, setTodoList }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputValueChange = (event) => {
@@ -13,7 +13,13 @@ const Input = ({ mode }) => {
     event.preventDefault();
 
     if (inputValue !== "") {
-      // do something
+      // Add the new todo item to the list
+      const newTodoItem = {
+        text: inputValue,
+        completed: false,
+        id: 1,
+      };
+      setTodoList((prevTodoList) => [...prevTodoList, newTodoItem]);
     }
     // after we hit enter
     setInputValue(" ");

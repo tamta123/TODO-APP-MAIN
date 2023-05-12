@@ -1,4 +1,14 @@
+.todo-item-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .todo-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   height: 52px;
   background: #ffffff;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
@@ -11,4 +21,18 @@
   border-radius: 50%;
   border: 1px solid #767992;
   background-color: transparent;
+}
+.todo-task {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166667px;
+  color: #494c6b;
+}
+
+.cross {
+  height: 16px;
+  width: 16px;
 }
