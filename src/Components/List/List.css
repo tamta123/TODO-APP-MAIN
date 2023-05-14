@@ -3,20 +3,17 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
-  border-radius: 5px;
-  padding: 16px 20px 22px 20px;
   margin-bottom: 16px;
+  background: #ffffff;
+  border-radius: 5px;
 }
 .left-clear {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
+  background: transparent;
+  padding: 16px 20px 22px 20px;
 }
 
 .left-clear div {
@@ -27,4 +24,7 @@
   line-height: 12px;
   letter-spacing: -0.166667px;
   color: #9495a5;
+}
+.dark-theme {
+  background: #25273d;
 }

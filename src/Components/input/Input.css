@@ -17,7 +17,7 @@ form {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid #767992;
+  border: 1px solid rgba(209, 210, 218, 1);
   background-color: transparent;
 }
 .input {

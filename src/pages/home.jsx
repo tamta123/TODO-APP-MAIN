@@ -10,6 +10,10 @@ import { useState } from "react";
 
 const Home = ({ mode, toggleMode }) => {
   const [todoList, setTodoList] = useState([]);
+  const deleteTodoItem = (itemId) => {
+    const updateList = todoList.filter((item) => item.id !== itemId);
+    setTodoList(updateList);
+  };
 
   return (
     <section
@@ -36,7 +40,11 @@ const Home = ({ mode, toggleMode }) => {
           </div>
         </div>
         <Input mode={mode} setTodoList={setTodoList} />
-        <List todoList={todoList} />
+        <List
+          todoList={todoList}
+          setTodoList={setTodoList}
+          deleteTodoItem={deleteTodoItem}
+        />
         <Footer mode={mode} />
         <p>Drag and drop to reorder list</p>
       </div>

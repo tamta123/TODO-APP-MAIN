@@ -17,7 +17,8 @@ const Input = ({ mode, setTodoList }) => {
       const newTodoItem = {
         text: inputValue,
         completed: false,
-        id: 1,
+        id: Math.floor(Math.random() * 1000),
+        show: true,
       };
       setTodoList((prevTodoList) => [...prevTodoList, newTodoItem]);
     }
