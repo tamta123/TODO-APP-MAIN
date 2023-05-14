@@ -10,10 +10,21 @@ import { useState } from "react";
 
 const Home = ({ mode, toggleMode }) => {
   const [todoList, setTodoList] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("all");
   const deleteTodoItem = (itemId) => {
     const updateList = todoList.filter((item) => item.id !== itemId);
     setTodoList(updateList);
   };
+
+  const filterTodoList = todoList.filter((item) => {
+    if (activeFilter === "active") {
+      return !item.completed;
+    } else if (activeFilter !== "active") {
+      return item.completed;
+    } else {
+      return true;
+    }
+  });
 
   return (
     <section
@@ -41,11 +52,13 @@ const Home = ({ mode, toggleMode }) => {
         </div>
         <Input mode={mode} setTodoList={setTodoList} />
         <List
+          mode={mode}
           todoList={todoList}
           setTodoList={setTodoList}
           deleteTodoItem={deleteTodoItem}
+          filterTodoList={filterTodoList}
         />
-        <Footer mode={mode} />
+        <Footer mode={mode} setActiveFilter={setActiveFilter} />
         <p>Drag and drop to reorder list</p>
       </div>
     </section>

@@ -12,7 +12,6 @@
   align-items: center;
   height: 52px;
   background: transparent;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   padding: 0px 16px 0px 16px;
   border-bottom: 1px solid #e3e4f1;
 }
@@ -34,8 +33,9 @@
   color: #494c6b;
 }
 
-.dark {
+.dark-theme {
   background-color: #25273d;
+  border-bottom: 1px solid rgba(57, 58, 75, 1);
 }
 
 .cross {

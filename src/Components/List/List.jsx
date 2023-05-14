@@ -2,7 +2,13 @@ import { useState } from "react";
 import TodoItem from "../todoitem/TodoItem";
 import "./List.css";
 
-const List = ({ mode, todoList, setTodoList, deleteTodoItem }) => {
+const List = ({
+  mode,
+  todoList,
+  setTodoList,
+  deleteTodoItem,
+  filterTodoList,
+}) => {
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
   return (
@@ -15,6 +21,7 @@ const List = ({ mode, todoList, setTodoList, deleteTodoItem }) => {
                 item={item}
                 setTodoList={setTodoList}
                 deleteTodoItem={deleteTodoItem}
+                // filterTodoList={filterTodoList}
               />
             );
           })
