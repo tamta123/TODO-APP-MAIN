@@ -1,21 +1,21 @@
 import "./Footer.css";
 
 const Footer = ({ mode, todoList, activeFilter, setActiveFilter }) => {
-  const activeItems = () => {
-    todoList.filter((item) => !item.completed);
-  };
-
-  const handleActiveClick = () => {
-    setActiveFilter("active");
+  const handleActiveClick = (condition) => {
+    setActiveFilter(condition);
   };
 
   return (
     <div className={`footer ${mode === "dark" ? "dark-theme" : ""}`}>
-      <div className="all">All</div>
-      <div className="active" onClick={handleActiveClick}>
+      <div className="all" onClick={() => handleActiveClick("all")}>
+        All
+      </div>
+      <div className="active" onClick={() => handleActiveClick("active")}>
         Active
       </div>
-      <div className="completed">Completed</div>
+      <div className="completed" onClick={() => handleActiveClick("completed")}>
+        Completed
+      </div>
     </div>
   );
 };

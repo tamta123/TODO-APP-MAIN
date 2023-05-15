@@ -19,7 +19,7 @@ const Home = ({ mode, toggleMode }) => {
   const filterTodoList = todoList.filter((item) => {
     if (activeFilter === "active") {
       return !item.completed;
-    } else if (activeFilter !== "active") {
+    } else if (activeFilter === "completed") {
       return item.completed;
     } else {
       return true;
@@ -53,10 +53,9 @@ const Home = ({ mode, toggleMode }) => {
         <Input mode={mode} setTodoList={setTodoList} />
         <List
           mode={mode}
-          todoList={todoList}
+          todoList={filterTodoList}
           setTodoList={setTodoList}
           deleteTodoItem={deleteTodoItem}
-          filterTodoList={filterTodoList}
         />
         <Footer mode={mode} setActiveFilter={setActiveFilter} />
         <p>Drag and drop to reorder list</p>
