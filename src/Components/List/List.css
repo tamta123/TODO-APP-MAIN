@@ -16,7 +16,8 @@
   padding: 16px 20px 22px 20px;
 }
 
-.left-clear div {
+.left-clear .left,
+.left-clear .clear {
   font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 400;
@@ -24,7 +25,35 @@
   line-height: 12px;
   letter-spacing: -0.166667px;
   color: #9495a5;
+  cursor: pointer;
+}
+.clear:hover {
+  color: #494c6b;
 }
 .dark-theme {
   background: #25273d;
+  border-radius: 5px;
+}
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .left-clear {
+    padding: 0px 20px 0px 20px;
+    display: flex;
+  }
+
+  .left,
+  .clear {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+  }
+  .hidden {
+    display: flex;
+    justify-content: center;
+  }
 }

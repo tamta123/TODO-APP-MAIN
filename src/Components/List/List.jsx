@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TodoItem from "../todoitem/TodoItem";
+import Footer from "../footer/Footer";
 import "./List.css";
 
 const List = ({
@@ -7,7 +8,8 @@ const List = ({
   todoList,
   setTodoList,
   deleteTodoItem,
-  filterTodoList,
+  setActiveFilter,
+  clearCompletedItems,
 }) => {
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
@@ -17,18 +19,23 @@ const List = ({
         ? todoList.map((item) => {
             return (
               <TodoItem
+                mode={mode}
                 key={item.id}
                 item={item}
                 setTodoList={setTodoList}
                 deleteTodoItem={deleteTodoItem}
-                // filterTodoList={filterTodoList}
               />
             );
           })
         : null}
       <div className="left-clear">
-        <div>{incompleteCount} items left</div>
-        <div>Clear Completed</div>
+        <div className="left">{incompleteCount} items left</div>
+        <div className="hidden">
+          <Footer mode={mode} setActiveFilter={setActiveFilter} />
+        </div>
+        <div className="clear" onClick={clearCompletedItems}>
+          Clear Completed
+        </div>
       </div>
     </div>
   );

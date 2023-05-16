@@ -45,3 +45,27 @@ p {
   letter-spacing: -0.194444px;
   color: #9495a5;
 }
+.home-page-image-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .home-page-image-desktop {
+    display: block;
+  }
+  .home-page-image {
+    display: none;
+  }
+  .todo-container {
+    padding-left: 450px;
+    padding-right: 450px;
+  }
+  .todo-wrapper {
+    margin-top: 70px;
+    margin-bottom: 48px;
+  }
+
+  .hidden-footer {
+    display: none;
+  }
+}

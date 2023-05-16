@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-const Footer = ({ mode, todoList, activeFilter, setActiveFilter }) => {
+const Footer = ({ mode, setActiveFilter }) => {
   const handleActiveClick = (condition) => {
     setActiveFilter(condition);
   };

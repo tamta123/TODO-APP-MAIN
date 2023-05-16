@@ -2,7 +2,9 @@ import "./home.css";
 import Moon from "../assets/icon-moon.svg";
 import Sun from "../assets/icon-sun.svg";
 import LightMobile from "../assets/bg-mobile-light.jpg";
+import LightDesktop from "../assets/bg-desktop-light.jpg";
 import DarkMobile from "../assets/bg-mobile-dark.jpg";
+import DarkDesktop from "../assets/bg-desktop-dark.jpg";
 import Input from "../Components/input/Input";
 import List from "../Components/List/List";
 import Footer from "../Components/footer/Footer";
@@ -26,6 +28,11 @@ const Home = ({ mode, toggleMode }) => {
     }
   });
 
+  const clearCompletedItems = () => {
+    const updateTodoList = todoList.filter((item) => !item.completed);
+    setTodoList(updateTodoList);
+  };
+
   return (
     <section
       className={`home-page-container ${mode === "dark" ? "dark-mode" : ""}`}
@@ -37,6 +44,22 @@ const Home = ({ mode, toggleMode }) => {
         alt="light"
       />
       <img className="home-page-image" id="dark" src={DarkMobile} alt="dark" />
+
+      {mode !== "dark" ? (
+        <img
+          className="home-page-image-desktop"
+          id="light"
+          src={LightDesktop}
+          alt="light"
+        />
+      ) : (
+        <img
+          className="home-page-image-desktop"
+          id="dark-desk"
+          src={DarkDesktop}
+          alt="dark-desk"
+        />
+      )}
       <div className="todo-container">
         <div className="todo-wrapper">
           <h1 className="title">TODO</h1>
@@ -56,8 +79,13 @@ const Home = ({ mode, toggleMode }) => {
           todoList={filterTodoList}
           setTodoList={setTodoList}
           deleteTodoItem={deleteTodoItem}
+          setActiveFilter={setActiveFilter}
+          clearCompletedItems={clearCompletedItems}
         />
-        <Footer mode={mode} setActiveFilter={setActiveFilter} />
+        <div className="hidden-footer">
+          <Footer mode={mode} setActiveFilter={setActiveFilter} />
+        </div>
+
         <p>Drag and drop to reorder list</p>
       </div>
     </section>

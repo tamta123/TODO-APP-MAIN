@@ -19,8 +19,37 @@
   line-height: 14px;
   letter-spacing: -0.194444px;
   color: #9495a5;
+  cursor: pointer;
+}
+.all {
+  color: rgba(58, 124, 253, 1);
 }
 
 .dark-theme {
-  background: #25273d;
+  background: transparent;
+}
+
+@media screen and (min-width: 1440px) {
+  .footer {
+    /* display: none; */
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 50%;
+    gap: 19px;
+  }
+
+  .all,
+  .active,
+  .completed {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+    color: #5b5e7e;
+  }
+  .all {
+    color: rgba(58, 124, 253, 1);
+  }
 }

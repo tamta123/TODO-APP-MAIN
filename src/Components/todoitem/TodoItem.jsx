@@ -20,21 +20,29 @@ const TodoItem = ({ mode, item, setTodoList, deleteTodoItem }) => {
     <div
       className={`todo-item-container ${mode === "dark" ? "dark-theme" : ""}`}
     >
-      <div className={`todo-items ${item.completed ? "done" : ""}`}>
+      <div
+        className={`todo-items ${item.completed ? "done" : ""} ${
+          mode === "dark" ? "border" : ""
+        }`}
+      >
         <div
           className={`check-div ${item.completed ? "background" : ""}`}
           id={`check-div-${item.id}`}
+          onClick={handleCheck}
         >
-          <img
-            className={`check-hidden ${item.completed ? "checked" : ""}`}
-            src={Check}
-            alt="check"
-            id={`check-${item.id}`}
-            onClick={handleCheck}
-          />
+          {item.completed ? (
+            <img
+              className={`check-hidden ${item.completed ? "checked" : ""}`}
+              src={Check}
+              alt="check"
+              id={`check-${item.id}`}
+            />
+          ) : null}
         </div>
         <div
-          className={`todo-task ${item.completed ? "underlined" : ""}`}
+          className={`todo-task ${item.completed ? "underlined" : ""} ${
+            mode === "dark" ? "change-color" : ""
+          }`}
           id={`todo-task-${item.id}`}
         >
           {item.text}

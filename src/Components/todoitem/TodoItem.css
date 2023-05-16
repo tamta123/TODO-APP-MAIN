@@ -22,6 +22,10 @@
   border-radius: 50%;
   border: 1px solid rgba(209, 210, 218, 1);
   background-color: transparent;
+  cursor: pointer;
+}
+.check-div:hover {
+  border-color: Linear Gradient rgba(85, 221, 255, 1) rgba(192, 88, 243, 1);
 }
 .todo-task {
   font-family: "Josefin Sans";
@@ -31,11 +35,10 @@
   line-height: 12px;
   letter-spacing: -0.166667px;
   color: #494c6b;
+  cursor: pointer;
 }
-
-.dark-theme {
+.todo-task:hov .dark-theme {
   background-color: #25273d;
-  border-bottom: 1px solid rgba(57, 58, 75, 1);
 }
 
 .cross {
@@ -53,4 +56,22 @@
 .underlined {
   text-decoration-line: line-through;
   color: #d1d2da;
+}
+.change-color {
+  color: rgba(200, 203, 231, 1);
+}
+
+.border {
+  border-bottom: 1px solid #393a4b;
+}
+
+@media screen and (min-width: 1440px) {
+  .todo-task {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.25px;
+    color: #494c6b;
+  }
 }
