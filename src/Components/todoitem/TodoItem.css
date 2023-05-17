@@ -25,7 +25,12 @@
   cursor: pointer;
 }
 .check-div:hover {
-  border-color: Linear Gradient rgba(85, 221, 255, 1) rgba(192, 88, 243, 1);
+  border-image: linear-gradient(
+    to right,
+    rgba(85, 221, 255, 1),
+    rgba(192, 88, 243, 1)
+  );
+  border-image-slice: 1;
 }
 .todo-task {
   font-family: "Josefin Sans";

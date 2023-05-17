@@ -25,6 +25,13 @@
   color: rgba(58, 124, 253, 1);
 }
 
+.completed:hover {
+  color: #494c6b;
+}
+.active:hover {
+  color: #494c6b;
+}
+
 .dark-theme {
   background: transparent;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TodoItem from "../todoitem/TodoItem";
 import Footer from "../footer/Footer";
 import "./List.css";
@@ -15,7 +15,7 @@ const List = ({
 
   return (
     <div className={`list-container ${mode === "dark" ? "dark-theme" : ""}`}>
-      {todoList.length > 0
+      {todoList && todoList.length > 0
         ? todoList.map((item) => {
             return (
               <TodoItem
