@@ -22,16 +22,28 @@
   border-radius: 50%;
   border: 1px solid rgba(209, 210, 218, 1);
   background-color: transparent;
+  position: relative;
   cursor: pointer;
 }
 .check-div:hover {
-  border-image: linear-gradient(
-    to right,
-    rgba(85, 221, 255, 1),
-    rgba(192, 88, 243, 1)
-  );
-  border-image-slice: 1;
+  border-color: transparent;
 }
+
+.check-div:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
 .todo-task {
   font-family: "Josefin Sans";
   font-style: normal;
