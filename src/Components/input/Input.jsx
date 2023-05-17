@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./input.css";
+import "./Input.css";
 
 const Input = ({ mode, setTodoList }) => {
   const [inputValue, setInputValue] = useState("");
