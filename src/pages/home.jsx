@@ -8,7 +8,7 @@ import DarkDesktop from "../assets/bg-desktop-dark.jpg";
 import Input from "../Components/input/Input";
 import List from "../Components/List/List";
 import Footer from "../Components/footer/Footer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Home = ({ mode, toggleMode }) => {
   const [todoList, setTodoList] = useState([]);
@@ -31,6 +31,27 @@ const Home = ({ mode, toggleMode }) => {
   const clearCompletedItems = () => {
     const updateTodoList = todoList.filter((item) => !item.completed);
     setTodoList(updateTodoList);
+  };
+
+  const dragItem = useRef();
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+    console.log(e.target.innerHTML);
+  };
+  const dragOverItem = useRef();
+  const dragEnter = (e, position) => {
+    dragOverItem.current = position;
+    console.log(e.target.innerHTML);
+  };
+
+  const drop = (e) => {
+    const copyListItems = [...todoList];
+    const dragItemContent = copyListItems[dragItem.current];
+    copyListItems.splice(dragItem.current, 1);
+    copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+    dragItem.current = null;
+    dragOverItem.current = null;
+    setTodoList(copyListItems);
   };
 
   return (
@@ -81,6 +102,9 @@ const Home = ({ mode, toggleMode }) => {
           deleteTodoItem={deleteTodoItem}
           setActiveFilter={setActiveFilter}
           clearCompletedItems={clearCompletedItems}
+          dragStart={dragStart}
+          dragEnter={dragEnter}
+          drop={drop}
         />
         <div className="hidden-footer">
           <Footer mode={mode} setActiveFilter={setActiveFilter} />

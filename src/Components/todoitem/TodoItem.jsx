@@ -3,7 +3,17 @@ import { useState } from "react";
 import Check from "../../assets/icon-check.svg";
 import Cross from "../../assets/icon-cross.svg";
 
-const TodoItem = ({ mode, item, setTodoList, deleteTodoItem }) => {
+const TodoItem = ({
+  mode,
+  item,
+  setTodoList,
+  deleteTodoItem,
+  dragStart,
+  dragItem,
+  dragEnter,
+  drop,
+  index,
+}) => {
   const handleCheck = () => {
     const updatedItem = { ...item, completed: !item.completed };
     setTodoList((prevTodoList) =>
@@ -24,6 +34,10 @@ const TodoItem = ({ mode, item, setTodoList, deleteTodoItem }) => {
         className={`todo-items ${item.completed ? "done" : ""} ${
           mode === "dark" ? "border" : ""
         }`}
+        draggable
+        onDragStart={(e) => dragStart(e, index)}
+        onDragEnter={(e) => dragEnter(e, index)}
+        onDragEnd={drop}
       >
         <div
           className={`check-div ${item.completed ? "background" : ""}`}

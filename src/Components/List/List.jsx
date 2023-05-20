@@ -10,13 +10,16 @@ const List = ({
   deleteTodoItem,
   setActiveFilter,
   clearCompletedItems,
+  dragStart,
+  dragEnter,
+  drop,
 }) => {
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
   return (
     <div className={`list-container ${mode === "dark" ? "dark-theme" : ""}`}>
       {todoList && todoList.length > 0
-        ? todoList.map((item) => {
+        ? todoList.map((item, index) => {
             return (
               <TodoItem
                 mode={mode}
@@ -24,6 +27,10 @@ const List = ({
                 item={item}
                 setTodoList={setTodoList}
                 deleteTodoItem={deleteTodoItem}
+                dragStart={dragStart} // Add dragStart prop
+                index={index}
+                dragEnter={dragEnter}
+                drop={drop}
               />
             );
           })
