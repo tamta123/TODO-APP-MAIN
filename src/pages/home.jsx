@@ -13,6 +13,9 @@ import { useState, useRef } from "react";
 const Home = ({ mode, toggleMode }) => {
   const [todoList, setTodoList] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
   const deleteTodoItem = (itemId) => {
     const updateList = todoList.filter((item) => item.id !== itemId);
     setTodoList(updateList);
@@ -33,12 +36,10 @@ const Home = ({ mode, toggleMode }) => {
     setTodoList(updateTodoList);
   };
 
-  const dragItem = useRef();
   const dragStart = (e, position) => {
     dragItem.current = position;
     console.log(e.target.innerHTML);
   };
-  const dragOverItem = useRef();
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
     console.log(e.target.innerHTML);
@@ -104,7 +105,7 @@ const Home = ({ mode, toggleMode }) => {
           clearCompletedItems={clearCompletedItems}
           dragStart={dragStart}
           dragEnter={dragEnter}
-          drop={drop}
+          // drop={drop}
         />
         <div className="hidden-footer">
           <Footer mode={mode} setActiveFilter={setActiveFilter} />

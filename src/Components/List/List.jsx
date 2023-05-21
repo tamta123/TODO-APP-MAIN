@@ -12,7 +12,7 @@ const List = ({
   clearCompletedItems,
   dragStart,
   dragEnter,
-  drop,
+  // drop,
 }) => {
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
@@ -30,7 +30,7 @@ const List = ({
                 dragStart={dragStart} // Add dragStart prop
                 index={index}
                 dragEnter={dragEnter}
-                drop={drop}
+                // drop={drop}
               />
             );
           })
