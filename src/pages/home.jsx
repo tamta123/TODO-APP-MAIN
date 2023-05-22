@@ -38,22 +38,24 @@ const Home = ({ mode, toggleMode }) => {
 
   const dragStart = (e, position) => {
     dragItem.current = position;
-    console.log(e.target.innerHTML);
+    // console.log(e.target.innerHTML);
+    // console.log(position);
   };
+
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
     console.log(e.target.innerHTML);
   };
 
-  const drop = (e) => {
-    const copyListItems = [...todoList];
-    const dragItemContent = copyListItems[dragItem.current];
-    copyListItems.splice(dragItem.current, 1);
-    copyListItems.splice(dragOverItem.current, 0, dragItemContent);
-    dragItem.current = null;
-    dragOverItem.current = null;
-    setTodoList(copyListItems);
-  };
+  // const drop = (e) => {
+  //   const copyListItems = [...todoList];
+  //   const dragItemContent = copyListItems[dragItem.current];
+  //   copyListItems.splice(dragItem.current, 1);
+  //   copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+  //   dragItem.current = null;
+  //   dragOverItem.current = null;
+  //   setTodoList(copyListItems);
+  // };
 
   return (
     <section

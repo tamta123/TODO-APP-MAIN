@@ -14,6 +14,19 @@ const List = ({
   dragEnter,
   // drop,
 }) => {
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+    // console.log(e.target.innerHTML);
+    // console.log(position);
+  };
+
+  const dragEnter = (e, position) => {
+    dragOverItem.current = position;
+    // console.log(e.target.innerHTML);
+  };
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
   return (
