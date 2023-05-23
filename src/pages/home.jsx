@@ -38,7 +38,7 @@ const Home = ({ mode, toggleMode }) => {
 
   const dragStart = (e, position) => {
     dragItem.current = position;
-    // console.log(e.target.innerHTML);
+    console.log(e.target.innerHTML);
     // console.log(position);
   };
 
@@ -107,6 +107,8 @@ const Home = ({ mode, toggleMode }) => {
           clearCompletedItems={clearCompletedItems}
           dragStart={dragStart}
           dragEnter={dragEnter}
+          dragItem={dragItem}
+          dragOverItem={dragOverItem}
           // drop={drop}
         />
         <div className="hidden-footer">

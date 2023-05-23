@@ -10,23 +10,12 @@ const List = ({
   deleteTodoItem,
   setActiveFilter,
   clearCompletedItems,
+  dragItem,
+  dragOverItem,
   dragStart,
   dragEnter,
   // drop,
 }) => {
-  const dragItem = useRef();
-  const dragOverItem = useRef();
-
-  const dragStart = (e, position) => {
-    dragItem.current = position;
-    // console.log(e.target.innerHTML);
-    // console.log(position);
-  };
-
-  const dragEnter = (e, position) => {
-    dragOverItem.current = position;
-    // console.log(e.target.innerHTML);
-  };
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
   return (
@@ -43,6 +32,8 @@ const List = ({
                 dragStart={dragStart} // Add dragStart prop
                 index={index}
                 dragEnter={dragEnter}
+                dragItem={dragItem}
+                dragOverItem={dragOverItem}
                 // drop={drop}
               />
             );

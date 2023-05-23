@@ -56,6 +56,10 @@ p {
   .home-page-image {
     display: none;
   }
+  .home-page-image-desktop {
+    width: 100vw;
+    height: 300px;
+  }
   .todo-container {
     padding-left: 450px;
     padding-right: 450px;
