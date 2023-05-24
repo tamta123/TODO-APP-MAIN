@@ -10,9 +10,7 @@ const TodoItem = ({
   deleteTodoItem,
   dragStart,
   dragEnter,
-  dragItem,
-  dragOverItem,
-  // drop,
+  drop,
   index,
 }) => {
   const handleCheck = () => {
@@ -31,11 +29,9 @@ const TodoItem = ({
     <div
       className={`todo-item-container ${mode === "dark" ? "dark-theme" : ""}`}
       draggable
-      dragItem={dragItem}
-      dragOverItem={dragOverItem}
       onDragStart={(e) => dragStart(e, index)}
       onDragEnter={(e) => dragEnter(e, index)}
-      // drop={drop}
+      onDragEnd={drop}
     >
       <div
         className={`todo-items ${item.completed ? "done" : ""} ${

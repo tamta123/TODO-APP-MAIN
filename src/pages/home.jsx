@@ -39,7 +39,7 @@ const Home = ({ mode, toggleMode }) => {
   const dragStart = (e, position) => {
     dragItem.current = position;
     console.log(e.target.innerHTML);
-    // console.log(position);
+    console.log(position);
   };
 
   const dragEnter = (e, position) => {
@@ -47,15 +47,15 @@ const Home = ({ mode, toggleMode }) => {
     console.log(e.target.innerHTML);
   };
 
-  // const drop = (e) => {
-  //   const copyListItems = [...todoList];
-  //   const dragItemContent = copyListItems[dragItem.current];
-  //   copyListItems.splice(dragItem.current, 1);
-  //   copyListItems.splice(dragOverItem.current, 0, dragItemContent);
-  //   dragItem.current = null;
-  //   dragOverItem.current = null;
-  //   setTodoList(copyListItems);
-  // };
+  const drop = (e) => {
+    const copyListItems = [...todoList];
+    const dragItemContent = copyListItems[dragItem.current];
+    copyListItems.splice(dragItem.current, 1);
+    copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+    dragItem.current = null;
+    dragOverItem.current = null;
+    setTodoList(copyListItems);
+  };
 
   return (
     <section
@@ -107,9 +107,9 @@ const Home = ({ mode, toggleMode }) => {
           clearCompletedItems={clearCompletedItems}
           dragStart={dragStart}
           dragEnter={dragEnter}
-          dragItem={dragItem}
-          dragOverItem={dragOverItem}
-          // drop={drop}
+          // dragItem={dragItem}
+          // dragOverItem={dragOverItem}
+          drop={drop}
         />
         <div className="hidden-footer">
           <Footer mode={mode} setActiveFilter={setActiveFilter} />
