@@ -107,12 +107,15 @@ const Home = ({ mode, toggleMode }) => {
           clearCompletedItems={clearCompletedItems}
           dragStart={dragStart}
           dragEnter={dragEnter}
-          // dragItem={dragItem}
-          // dragOverItem={dragOverItem}
           drop={drop}
+          activeFilter={activeFilter}
         />
         <div className="hidden-footer">
-          <Footer mode={mode} setActiveFilter={setActiveFilter} />
+          <Footer
+            mode={mode}
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+          />
         </div>
 
         <p>Drag and drop to reorder list</p>

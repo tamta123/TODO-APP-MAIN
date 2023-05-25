@@ -32,7 +32,7 @@ const Input = ({ mode, setTodoList }) => {
         <div
           className={`input-with-icon ${mode === "dark" ? "dark-theme" : ""}`}
         >
-          <div className="input-icon"></div>
+          <div className="input-icon" onClick={handleSubmit}></div>
           <input
             type="text"
             className={`input ${mode === "dark" ? "dark-theme" : ""}`}

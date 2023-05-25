@@ -21,7 +21,14 @@
   color: #9495a5;
   cursor: pointer;
 }
-.all {
+.isActive {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.194444px;
+  cursor: pointer;
   color: rgba(58, 124, 253, 1);
 }
 
@@ -56,7 +63,13 @@
     letter-spacing: -0.194444px;
     color: #5b5e7e;
   }
-  .all {
+  .isActive {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
     color: rgba(58, 124, 253, 1);
   }
 }

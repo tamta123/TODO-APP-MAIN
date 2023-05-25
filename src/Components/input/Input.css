@@ -18,7 +18,7 @@ form {
   height: 20px;
   border-radius: 50%;
   border: 1px solid rgba(209, 210, 218, 1);
-  background-color: transparent;
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
 }
 .input {
   background-color: transparent;

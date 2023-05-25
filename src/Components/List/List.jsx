@@ -13,6 +13,7 @@ const List = ({
   dragStart,
   dragEnter,
   drop,
+  activeFilter,
 }) => {
   const incompleteCount = todoList.filter((item) => !item.completed).length;
 
@@ -38,7 +39,11 @@ const List = ({
       <div className="left-clear">
         <div className="left">{incompleteCount} items left</div>
         <div className="hidden">
-          <Footer mode={mode} setActiveFilter={setActiveFilter} />
+          <Footer
+            mode={mode}
+            setActiveFilter={setActiveFilter}
+            activeFilter={activeFilter}
+          />
         </div>
         <div className="clear" onClick={clearCompletedItems}>
           Clear Completed
