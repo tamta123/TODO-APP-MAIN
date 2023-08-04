@@ -45,8 +45,25 @@ p {
   letter-spacing: -0.194444px;
   color: #9495a5;
 }
+
+.home-page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .home-page-image-desktop {
   display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .home-page-image {
+    display: none;
+  }
+  .home-page-image-desktop {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -57,8 +74,8 @@ p {
     display: none;
   }
   .home-page-image-desktop {
-    width: 100vw;
-    height: 300px;
+    width: 100%;
+    height: auto;
   }
   .todo-container {
     padding-left: 450px;
