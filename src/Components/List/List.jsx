@@ -24,7 +24,7 @@ const List = ({
             return (
               <TodoItem
                 mode={mode}
-                key={item.id}
+                key={index}
                 item={item}
                 setTodoList={setTodoList}
                 deleteTodoItem={deleteTodoItem}

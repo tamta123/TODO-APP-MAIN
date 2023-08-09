@@ -8,7 +8,8 @@ import DarkDesktop from "../assets/bg-desktop-dark.jpg";
 import Input from "../Components/input/Input";
 import List from "../Components/List/List";
 import Footer from "../Components/footer/Footer";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import axios from "axios";
 
 const Home = ({ mode, toggleMode }) => {
   const [todoList, setTodoList] = useState([]);
@@ -17,7 +18,7 @@ const Home = ({ mode, toggleMode }) => {
   const dragOverItem = useRef();
 
   const deleteTodoItem = (itemId) => {
-    const updateList = todoList.filter((item) => item.id !== itemId);
+    const updateList = todoList.filter((item) => item._id !== itemId);
     setTodoList(updateList);
   };
 
@@ -31,9 +32,20 @@ const Home = ({ mode, toggleMode }) => {
     }
   });
 
-  const clearCompletedItems = () => {
-    const updateTodoList = todoList.filter((item) => !item.completed);
-    setTodoList(updateTodoList);
+  const clearCompletedItems = async () => {
+    try {
+      const response = await axios.delete(
+        "https://to-do-app-back-production.up.railway.app/api/items/completed"
+      );
+      if (response.status === 200) {
+        const updateTodoList = todoList.filter((item) => !item.completed);
+        setTodoList(updateTodoList);
+      } else {
+        console.log("Error clearing completed items", response.data);
+      }
+    } catch (error) {
+      console.log("Error clearing completed items", error);
+    }
   };
 
   const dragStart = (e, position) => {
@@ -56,6 +68,22 @@ const Home = ({ mode, toggleMode }) => {
     dragOverItem.current = null;
     setTodoList(copyListItems);
   };
+
+  useEffect(() => {
+    const fetchTodoItems = async () => {
+      try {
+        const response = await axios.get(
+          "https://to-do-app-back-production.up.railway.app/api/items"
+        );
+
+        console.log(response.data);
+        setTodoList(response.data);
+      } catch (error) {
+        console.error("Error fetching todo items:", error);
+      }
+    };
+    fetchTodoItems();
+  }, []);
 
   return (
     <section

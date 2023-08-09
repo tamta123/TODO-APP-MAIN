@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Input.css";
+import axios from "axios";
 
 const Input = ({ mode, setTodoList }) => {
   const [inputValue, setInputValue] = useState("");
@@ -9,21 +10,24 @@ const Input = ({ mode, setTodoList }) => {
     // set the value of input whatever is typed as input
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (inputValue !== "") {
-      // Add the new todo item to the list
-      const newTodoItem = {
-        text: inputValue,
-        completed: false,
-        id: Math.floor(Math.random() * 1000),
-        show: true,
-      };
-      setTodoList((prevTodoList) => [...prevTodoList, newTodoItem]);
+      try {
+        const response = await axios.post(
+          "https://to-do-app-back-production.up.railway.app/api/newItem",
+          {
+            task: inputValue,
+            completed: false,
+          }
+        );
+        setTodoList((prevTodoList) => [...prevTodoList, response.data]);
+        setInputValue("");
+      } catch (error) {
+        console.error("Error adding todo item:", error);
+      }
     }
-    // after we hit enter
-    setInputValue(" ");
   };
 
   return (
